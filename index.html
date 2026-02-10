@@ -17,12 +17,12 @@
           rel="stylesheet">
 
     <style>
-        /* -------------------- PALETTE & TYPOGRAPHY -------------------- */
+        /* -------------------- PALETTE & FONTS -------------------- */
         :root{
             --bg:#f5f5f5;          /* light grey */
             --primary:#2e2e2e;    /* charcoal */
             --accent:#b71c1c;     /* warm red */
-            --secondary:#4c7c59; /* muted green (used just for occasional accents) */
+            --secondary:#4c7c59; /* muted green (occasional accent) */
             --font-heading:'Playfair Display',serif;
             --font-body:'Inter',sans-serif;
         }
@@ -46,11 +46,11 @@
 
         /* -------------------- HOME SECTION – CENTERED -------------------- */
         #home{
-            /* Flex container that centers the white card vertically & horizontally */
+            /* Flex container that vertically & horizontally centers the card */
             display:flex;
             align-items:center;
             justify-content:center;
-            min-height:calc(100vh - 72px);   /* full viewport height minus header height */
+            min-height:calc(100vh - 72px);   /* viewport height minus header height */
             padding:2rem;
         }
         .home-card{
@@ -60,11 +60,6 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:800px;
             width:100%;
-            /* Flex layout inside the card – pushes the button to the centre */
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            justify-content:center;
             text-align:center;
         }
         .home-card h1{
@@ -77,8 +72,9 @@
             margin-bottom:1.5rem;
         }
         .home-card .cta{
-            /* the button itself – centred automatically because the card is a flex column */
-            margin-top:1rem;
+            display:flex;
+            gap:1rem;
+            justify-content:center;   /* side‑by‑side and centered */
         }
 
         /* -------------------- GLOBAL SECTION STYLE (others) -------------------- */
@@ -211,15 +207,14 @@
     </nav>
 </header>
 
-<!-- ==================== HOME (centered, button in middle of card) ==================== -->
+<!-- ==================== HOME (original layout) ==================== -->
 <section id="home">
     <div class="home-card">
         <h1>R&amp;M Butchers best in Harpenden</h1>
         <p>Martin and Robert believe that Harpenden is the right place for their shop which sells top quality fresh meat</p>
-
-        <!-- Button centered inside the card (thanks to the flex layout) -->
         <div class="cta">
             <button class="btn" onclick="showSection('products')">Shop Our Range</button>
+            <button class="btn btn-outline" onclick="showSection('contact')">Get in Touch</button>
         </div>
     </div>
 </section>
