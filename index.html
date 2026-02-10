@@ -17,10 +17,10 @@
 
     <style>
         :root{
-            --bg:#f5f5f5;          /* light grey */
-            --primary:#2e2e2e;    /* charcoal */
-            --accent:#b71c1c;     /* warm red */
-            --secondary:#4c7c59; /* muted green */
+            --bg:#f5f5f5;          /* light grey background */
+            --primary:#2e2e2e;    /* charcoal text */
+            --accent:#b71c1c;     /* warm red for buttons */
+            --secondary:#4c7c59;  /* muted green (rarely used) */
             --font-body:'Roboto',sans-serif;
             --font-title:'Bebas Neue',cursive;
         }
@@ -48,13 +48,12 @@
         }
         nav a:hover{opacity:.8;}
 
-        /* -------------------- HOME SECTION – CENTERED -------------------- */
+        /* ------------ HOME – FULL‑PAGE CENTERED ------------ */
         #home{
             display:flex;
             align-items:center;
             justify-content:center;
-            min-height:calc(100vh - 72px);
-            padding:2rem;
+            min-height:calc(100vh - 72px);   /* full viewport minus header */
         }
         .home-card{
             background:#fff;
@@ -63,12 +62,13 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:800px;
             width:100%;
+            margin:auto;                     /* centre the card horizontally */
             display:flex;
             flex-direction:column;
-            justify-content:center;
+            justify-content:center;        /* vertical centre inside the card */
             align-items:center;
             text-align:center;
-            min-height:300px;
+            min-height:350px;
         }
         .home-card h1{
             font-family:var(--font-title);
@@ -162,11 +162,12 @@
         .contact-form label{display:block;margin-bottom:.3rem;font-weight:500;}
         .contact-form input,.contact-form textarea{
             width:100%;padding:.6rem;margin-bottom:1rem;
-            border:1px solid #ccc;border-radius:4px;
+            border:1px solid #ccc;border-radius:4px;font-family:inherit;
         }
         .contact-form button{
             background:var(--accent);color:#fff;border:none;
             padding:.8rem 1.2rem;border-radius:4px;cursor:pointer;
+            font-weight:500;
         }
         .contact-form button:hover{opacity:.9;}
 
@@ -221,7 +222,7 @@
     </nav>
 </header>
 
-<!-- ==================== HOME (heading restored) ==================== -->
+<!-- ==================== HOME (centered) ==================== -->
 <section id="home">
     <div class="home-card">
         <h1>R&amp;M Butchers best in Harpenden</h1>
