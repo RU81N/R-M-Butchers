@@ -12,8 +12,8 @@
     <meta property="og:image"   content="https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1200&h=630&fit=crop">
     <meta property="og:type"    content="website">
 
-    <!-- Google Fonts – Roboto (body) + Roboto Slab (headings) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Roboto+Slab:wght@600;700&display=swap"
+    <!-- Google Fonts – Roboto (body) + Bebas Neue (titles) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Bebas+Neue&display=swap"
           rel="stylesheet">
 
     <style>
@@ -23,8 +23,8 @@
             --primary:#2e2e2e;    /* charcoal */
             --accent:#b71c1c;     /* warm red */
             --secondary:#4c7c59; /* muted green (occasional accent) */
-            --font-heading:'Roboto Slab',serif;   /* professional heading */
-            --font-body:'Roboto',sans-serif;     /* professional body */
+            --font-body:'Roboto',sans-serif;          /* professional body */
+            --font-title:'Bebas Neue',cursive;        /* standout titles */
         }
         *,*::before,*::after{box-sizing:border-box;}
         body{
@@ -39,16 +39,23 @@
 
         header,footer{background:var(--primary);color:#fff;}
         header{padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
-        .logo{font-family:var(--font-heading);font-size:1.8rem;font-weight:700;}
+        .logo{
+            font-family:var(--font-title);
+            font-size:2rem;          /* slightly larger for the logo */
+        }
         nav ul{list-style:none;display:flex;gap:1.2rem;margin:0;padding:0;}
-        nav a{color:#fff;font-weight:500;}
+        nav a{
+            color:#fff;
+            font-family:var(--font-title);
+            font-weight:500;
+        }
         nav a:hover{opacity:.8;}
 
         /* -------------------- HOME SECTION – CENTERED -------------------- */
         #home{
             display:flex;
-            align-items:center;      /* vertical centering of the card */
-            justify-content:center;  /* horizontal centering of the card */
+            align-items:center;
+            justify-content:center;
             min-height:calc(100vh - 72px);   /* full viewport minus header */
             padding:2rem;
         }
@@ -61,14 +68,14 @@
             width:100%;
             display:flex;
             flex-direction:column;
-            justify-content:center;   /* push content to the middle of the card */
+            justify-content:center;
             align-items:center;
             text-align:center;
             min-height:350px;
         }
         .home-card h1{
-            font-family:var(--font-heading);
-            font-size:2.4rem;
+            font-family:var(--font-title);
+            font-size:2.8rem;
             margin-bottom:.5rem;
         }
         .home-card p{
@@ -84,8 +91,8 @@
         /* -------------------- GLOBAL SECTION STYLE (others) -------------------- */
         section{padding:4rem 2rem;max-width:1200px;margin:auto;display:none;}
         .section-title{
-            font-family:var(--font-heading);
-            font-size:2.2rem;
+            font-family:var(--font-title);
+            font-size:2.8rem;
             margin-bottom:2rem;
             text-align:center;
         }
@@ -113,12 +120,16 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             font-size:.96rem;line-height:1.5;
         }
-        .black-gold h2{color:var(--accent);margin-bottom:.8rem;font-family:var(--font-heading);}
+        .black-gold h2{
+            font-family:var(--font-title);
+            color:var(--accent);
+            margin-bottom:.8rem;
+        }
 
         .products{
             display:grid;
             gap:2rem;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            grid-template-columns:repeat(auto-fit,minmax(250px,1rem));
             margin-top:2rem;
         }
         .product-card{
@@ -128,8 +139,13 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
         }
         .product-card img{width:100%;height:180px;object-fit:cover;}
-        .product-card .info{padding:1.5rem;}
-        .product-card h3{font-family:var(--font-heading);margin-bottom:.5rem;}
+        .product-card .info{
+            padding:1.5rem;
+        }
+        .product-card h3{
+            font-family:var(--font-title);
+            margin-bottom:.5rem;
+        }
         .price{font-weight:600;color:var(--accent);}
 
         .hours-card{
@@ -137,7 +153,11 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:500px;margin:auto;
         }
-        .hours-card h2{color:var(--accent);margin-bottom:1rem;font-family:var(--font-heading);}
+        .hours-card h2{
+            font-family:var(--font-title);
+            color:var(--accent);
+            margin-bottom:1rem;
+        }
 
         .contact-grid{
             display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
@@ -165,7 +185,8 @@
 
         @media (max-width:600px){
             .home-card{margin:1rem;padding:1.5rem;}
-            .home-card h1{font-size:2rem;}
+            .home-card h1{font-size:2.4rem;}
+            .section-title{font-size:2.4rem;}
         }
     </style>
 
@@ -277,7 +298,7 @@
             <div class="info"><h3>Sausages &amp; Charcuterie</h3><p>Hand‑crafted links, hams, and pâtés.</p><div class="price">£ / kg</div></div>
         </div>
 
-        <!-- Seasonal/Game meat special -->
+        <!-- Seasonal / Game meat special -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Game meat">
             <div class="info"><h3>Game Meat (Seasonal)</h3><p>Venison, pheasant, rabbit – available during hunting season.</p><div class="price">Varies</div></div>
@@ -345,24 +366,24 @@
 <script>
 /* -------------------------------------------------
    Global navigation – show only the selected section.
-   Function attached to window so inline onclicks work.
+   Function attached to window for inline onclicks.
    ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
 }
 window.showSection = function(id){
     hideAllSections();
-    const target=document.getElementById(id);
-    if (target) target.style.display='block';
+    const target = document.getElementById(id);
+    if (target) target.style.display = 'block';
     window.scrollTo({top:0,behavior:'smooth'});
 };
 
 /* Show Home on first load */
 document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
 
-/* Navigation links – prevent default "#" jump */
+/* Prevent default # behavior on navigation clicks */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
-    link.addEventListener('click',e=>{
+    link.addEventListener('click', e=>{
         e.preventDefault();
         showSection(link.dataset.target);
     });
