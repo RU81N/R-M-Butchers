@@ -9,98 +9,181 @@
     <!-- Open Graph (optional) -->
     <meta property="og:title" content="R&amp;M Butchers – Fresh, Top‑Quality Meat in Harpenden">
     <meta property="og:description" content="Family‑run shop, only supplier of Scottish Black Gold Beef in Harpenden.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1200&h=630&fit=crop">
-    <meta property="og:type" content="website">
+    <meta property="og:image"   content="https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1200&h=630&fit=crop">
+    <meta property="og:type"    content="website">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
           rel="stylesheet">
 
     <style>
-        /* ==================== PALETTE & TYPOGRAPHY ==================== */
+        /* ------------------- colour palette & fonts ------------------- */
         :root{
-            --bg:#f5f5f5;          /* Light grey */
-            --primary:#2e2e2e;    /* Charcoal */
-            --accent:#b71c1c;     /* Warm red */
-            --secondary:#4c7c59; /* Muted green */
+            --bg:#f5f5f5;          /* light grey */
+            --primary:#2e2e2e;    /* charcoal */
+            --accent:#b71c1c;     /* warm red */
+            --secondary:#4c7c59; /* muted green for occasional accents */
             --font-heading:'Playfair Display',serif;
             --font-body:'Inter',sans-serif;
         }
-        *{box-sizing:border-box;margin:0;padding:0;}
-        body{font-family:var(--font-body);background:var(--bg);color:var(--primary);line-height:1.6;}
+        *,*::before,*::after{box-sizing:border-box;}
+        body{
+            margin:0;
+            font-family:var(--font-body);
+            background:var(--bg);
+            color:var(--primary);
+            line-height:1.6;
+        }
         a{color:var(--accent);text-decoration:none;}
         a:hover{text-decoration:underline;}
 
         header,footer{background:var(--primary);color:#fff;}
         header{padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
         .logo{font-family:var(--font-heading);font-size:1.8rem;font-weight:700;}
-        nav ul{list-style:none;display:flex;gap:1.2rem;}
+        nav ul{list-style:none;display:flex;gap:1.2rem;margin:0;padding:0;}
         nav a{color:#fff;font-weight:500;}
         nav a:hover{opacity:.8;}
 
-        /* ==================== HERO (HOME) ==================== */
-        #home.hero{
-            background:url('https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1600&h=900&fit=crop') center/cover no-repeat;
-            position:relative;color:#fff;text-align:center;padding:8rem 1rem;
+        /* ------------------- HERO (modern home) ------------------- */
+        #home{
+            background:url('https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=2000&h=1200&fit=crop') center/cover no-repeat;
+            position:relative;
+            color:#fff;
+            text-align:center;
+            padding:7rem 1rem;
         }
-        #home.hero::after{
+        #home::after{
             content:"";
             position:absolute;inset:0;
-            background:rgba(0,0,0,0.2);    /* lighter overlay for readability */
+            background:rgba(0,0,0,0.35);   /* dark overlay for legibility */
         }
-        #home .hero-content{
-            position:relative;max-width:800px;margin:auto;
-            text-shadow:0 1px 2px rgba(0,0,0,0.6);   /* ensure white text pops */
+        #home .content{
+            position:relative;
+            max-width:800px;
+            margin:auto;
+            text-shadow:0 1px 3px rgba(0,0,0,0.6);
         }
-        #home .hero-content h1{font-family:var(--font-heading);font-size:2.8rem;margin-bottom:.5rem;}
-        #home .hero-content p{font-size:1.2rem;margin-bottom:1.5rem;}
-        #home .hero-content .btn{
-            background:var(--accent);color:#fff;padding:.8rem 1.5rem;
-            border:none;border-radius:4px;cursor:pointer;font-weight:500;
+        #home h1{
+            font-family:var(--font-heading);
+            font-size:2.6rem;
+            margin-bottom:.5rem;
         }
-        #home .hero-content .btn:hover{opacity:.9;}
+        #home p{
+            font-size:1.2rem;
+            margin-bottom:1.8rem;
+        }
+        #home .cta{
+            display:flex;
+            gap:1rem;
+            justify-content:center;
+        }
+        #home .btn{
+            background:var(--accent);
+            color:#fff;
+            border:none;
+            border-radius:4px;
+            padding:.8rem 1.5rem;
+            cursor:pointer;
+            font-weight:500;
+        }
+        #home .btn:hover{opacity:.9;}
+        #home .btn-outline{
+            background:transparent;
+            border:2px solid #fff;
+            color:#fff;
+        }
 
-        /* ==================== SECTION COMMON ==================== */
+        /* ------------------- generic sections ------------------- */
         section{padding:4rem 2rem;max-width:1200px;margin:auto;display:none;}
-        .section-title{font-family:var(--font-heading);font-size:2.2rem;margin-bottom:2rem;text-align:center;}
+        .section-title{
+            font-family:var(--font-heading);
+            font-size:2.2rem;
+            margin-bottom:2rem;
+            text-align:center;
+        }
 
-        /* ==================== FEATURE CARDS ==================== */
-        .features{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-        .feature{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;}
-        .feature svg{width:40px;height:40px;margin-bottom:1rem;fill:var(--accent);}
+        /* ------------------- OUR PROMISE CARD ------------------- */
+        #promise{
+            background:#fff;
+            border-radius:8px;
+            padding:2rem;
+            box-shadow:0 2px 6px rgba(0,0,0,.08);
+            max-width:900px;
+            margin:2rem auto;
+            text-align:center;
+        }
 
-        /* ==================== PRODUCT GRID ==================== */
-        .products{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
-        .product-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+        /* ------------------- FEATURE GRID (home) ------------------- */
+        .feature-grid{
+            display:grid;
+            gap:2rem;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            margin-top:2rem;
+        }
+        .feature{
+            background:#fff;
+            border-radius:8px;
+            overflow:hidden;
+            box-shadow:0 2px 6px rgba(0,0,0,.08);
+            text-align:center;
+        }
+        .feature img{width:100%;height:180px;object-fit:cover;}
+        .feature h3{
+            font-family:var(--font-heading);
+            margin:1rem 0 .5rem;
+        }
+        .feature p{margin:0 1rem 1rem; font-size:.95rem;}
+
+        /* ------------------- OTHER CONTENT BLOCKS ------------------- */
+        .features,.products{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+        .feature-card,.product-card{
+            background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;
+        }
+        .feature-card svg{width:40px;height:40px;margin-bottom:1rem;fill:var(--accent);}
         .product-card img{width:100%;height:180px;object-fit:cover;}
         .product-card .info{padding:1.5rem;}
         .product-card h3{font-family:var(--font-heading);margin-bottom:.5rem;}
         .price{font-weight:600;color:var(--accent);}
 
-        /* ==================== BLACK‑GOLD BLOCK ==================== */
-        .black-gold{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
-                    font-size:.96rem;line-height:1.5;}
+        /* ------------------- BLACK‑GOLD BLOCK ------------------- */
+        .black-gold{
+            background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
+            font-size:.96rem;line-height:1.5;
+        }
         .black-gold h2{color:var(--accent);margin-bottom:.8rem;font-family:var(--font-heading);}
 
-        /* ==================== SPECIALS ==================== */
-        .specials{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;}
-        .badge{display:inline-block;background:var(--secondary);color:#fff;padding:.3rem .8rem;
-               border-radius:4px;font-weight:500;margin-bottom:1rem;}
+        /* ------------------- SPECIALS ------------------- */
+        .specials{
+            background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;
+        }
+        .badge{
+            display:inline-block;background:var(--secondary);color:#fff;padding:.3rem .8rem;
+            border-radius:4px;font-weight:500;margin-bottom:1rem;
+        }
 
-        /* ==================== OPENING HOURS ==================== */
-        .hours-card{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
-                    max-width:500px;margin:auto;}
+        /* ------------------- HOURS CARD ------------------- */
+        .hours-card{
+            background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
+            max-width:500px;margin:auto;
+        }
         .hours-card h2{color:var(--accent);margin-bottom:1rem;font-family:var(--font-heading);}
 
-        /* ==================== CONTACT ==================== */
-        .contact-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+        /* ------------------- CONTACT ------------------- */
+        .contact-grid{
+            display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+        }
         .map iframe{width:100%;height:100%;border:0;min-height:300px;}
-        .contact-form{background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);}
+        .contact-form{
+            background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
+        }
         .contact-form label{display:block;margin-bottom:.3rem;font-weight:500;}
-        .contact-form input,.contact-form textarea{width:100%;padding:.6rem;margin-bottom:1rem;
-                                                   border:1px solid #ccc;border-radius:4px;font-family:inherit;}
-        .contact-form button{background:var(--accent);color:#fff;border:none;padding:.8rem 1.2rem;
-                             border-radius:4px;cursor:pointer;font-weight:500;}
+        .contact-form input,.contact-form textarea{
+            width:100%;padding:.6rem;margin-bottom:1rem;border:1px solid #ccc;border-radius:4px;font-family:inherit;
+        }
+        .contact-form button{
+            background:var(--accent);color:#fff;border:none;padding:.8rem 1.2rem;
+            border-radius:4px;cursor:pointer;font-weight:500;
+        }
         .contact-form button:hover{opacity:.9;}
 
         footer{padding:2rem;text-align:center;font-size:.9rem;}
@@ -109,7 +192,7 @@
 
         @media (max-width:600px){
             #home{padding:5rem 1rem;}
-            #home .hero-content h1{font-size:2.2rem;}
+            #home h1{font-size:2.2rem;}
         }
     </style>
 
@@ -156,47 +239,69 @@
     </nav>
 </header>
 
-<!-- ==================== HOME ==================== -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Top‑Quality Fresh Meat</h1>
-        <p>Martin and Robert believe that Harpenden is the right place for their shop which sells top‑quality fresh meat.</p>
-        <button class="btn" onclick="showSection('contact')">Get in Touch</button>
-    </div>
-
-    <!-- Why choose us – still part of the home page -->
-    <div class="features" style="margin-top:3rem;">
-        <div class="feature">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 6.627 9 13 9 13s9-6.373 9-13a9 9 0 0 0-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
-            <h3>Premium Freshness</h3>
-            <p>All meat is sourced daily and displayed on a chilled counter.</p>
-        </div>
-        <div class="feature">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <h3>Local Expertise</h3>
-            <p>Our butchers know every cut and can advise the perfect preparation.</p>
-        </div>
-        <div class="feature">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
-            <h3>Family Values</h3>
-            <p>We treat every customer like a neighbour, with honesty and care.</p>
-        </div>
-    </div>
-
-    <!-- Mini product preview (still inside #home) -->
-    <div class="products" style="margin-top:3rem;">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
-            <div class="info"><h3>Beef</h3><p>Prime cuts, ribs, steaks.</p><div class="price">£ / kg</div></div>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1515967749615-4392c5b0f8ef?w=600&h=400&fit=crop" alt="Pork">
-            <div class="info"><h3>Pork</h3><p>Back ribs, pork loins, bacon.</p><div class="price">£ / kg</div></div>
+<!-- ==============================================================
+     HOME – CLEAN & MODERN HERO + QUICK OVERVIEW
+============================================================== -->
+<section id="home">
+    <div class="content">
+        <h1>Harpenden’s Finest Butcher</h1>
+        <p>Family‑run shop delivering premium fresh meat – the only local source for Scottish Black Gold Beef.</p>
+        <div class="cta">
+            <button class="btn" onclick="showSection('products')">Shop Our Range</button>
+            <button class="btn btn-outline" onclick="showSection('contact')">Get in Touch</button>
         </div>
     </div>
 </section>
 
-<!-- ==================== ABOUT ==================== -->
+<!-- --------------------------------------------------------------
+     OUR PROMISE – short statement that appears under the hero
+-------------------------------------------------------------- -->
+<section id="promise">
+    <h2 class="section-title">Our Promise</h2>
+    <p>
+        Every cut is sourced daily, traditionally aged on the bone for 14 days, and handcrafted on‑site. From Scottish Black Gold Beef to our house‑made sausages, we guarantee freshness, flavour, and honest service.
+    </p>
+</section>
+
+<!-- --------------------------------------------------------------
+     QUICK FEATURE GRID – show the six main product families
+-------------------------------------------------------------- -->
+<section id="home-features" class="feature-grid">
+    <div class="feature">
+        <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
+        <h3>Beef</h3>
+        <p>Prime cuts, ribs, steaks – including exclusive Black Gold Beef.</p>
+    </div>
+    <div class="feature">
+        <img src="https://images.unsplash.com/photo-1515967749615-4392c5b0f8ef?w=600&h=400&fit=crop" alt="Pork">
+        <h3>Pork</h3>
+        <p>Back ribs, loins, smoked bacon – responsibly sourced.</p>
+    </div>
+    <div class="feature">
+        <img src="https://images.unsplash.com/photo-1584515933485-16ab0ef8c488?w=600&h=400&fit=crop" alt="Lamb">
+        <h3>Lamb</h3>
+        <p>Leg, chops, and mince – perfect for roasts.</p>
+    </div>
+    <div class="feature">
+        <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?w=600&h=400&fit=crop" alt="Poultry">
+        <h3>Poultry</h3>
+        <p>Free‑range chicken, turkey, and duck.</p>
+    </div>
+    <div class="feature">
+        <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&h=400&fit=crop" alt="Sausages">
+        <h3>Sausages &amp; Charcuterie</h3>
+        <p>Hand‑crafted links, hams, and pâtés made in‑store.</p>
+    </div>
+    <div class="feature">
+        <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Specials">
+        <h3>Specials</h3>
+        <p>Seasonal offers, holiday hampers, and limited‑edition cuts.</p>
+    </div>
+</section>
+
+<!-- ==============================================================
+     ABOUT
+============================================================== -->
 <section id="about">
     <h2 class="section-title">About R&amp;M Butchers</h2>
     <p style="max-width:800px;margin:auto;text-align:center;">
@@ -204,7 +309,9 @@
     </p>
 </section>
 
-<!-- ==================== BLACK GOLD BEEF ==================== -->
+<!-- ==============================================================
+     SCOTTISH BLACK GOLD BEEF
+============================================================== -->
 <section id="blackgold">
     <h2 class="section-title">Scottish Black Gold Beef</h2>
     <div class="black-gold">
@@ -216,7 +323,9 @@
     </div>
 </section>
 
-<!-- ==================== PRODUCTS ==================== -->
+<!-- ==============================================================
+     PRODUCTS (full catalogue)
+============================================================== -->
 <section id="products">
     <h2 class="section-title">Our Range</h2>
     <p style="text-align:center;margin-bottom:2rem;">
@@ -250,7 +359,9 @@
     </div>
 </section>
 
-<!-- ==================== SPECIALS ==================== -->
+<!-- ==============================================================
+     SPECIALS (highlight Black Gold)
+============================================================== -->
 <section id="specials" class="specials">
     <h2 class="section-title">Scottish Black Gold Beef – Exclusive</h2>
     <div class="badge">Only in Harpenden</div>
@@ -258,7 +369,9 @@
     <button class="btn" onclick="showSection('contact')">Find Out More</button>
 </section>
 
-<!-- ==================== OPENING HOURS ==================== -->
+<!-- ==============================================================
+     OPENING HOURS
+============================================================== -->
 <section id="hours">
     <h2 class="section-title">Opening Hours</h2>
     <div class="hours-card">
@@ -270,7 +383,9 @@
     </div>
 </section>
 
-<!-- ==================== CONTACT ==================== -->
+<!-- ==============================================================
+     CONTACT (map + form)
+============================================================== -->
 <section id="contact">
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
@@ -279,7 +394,7 @@
             <iframe
                 src="https://www.google.com/maps?q=10+Station+Road+Harpenden+AL5+4SE&output=embed"
                 allowfullscreen loading="lazy"
-                style="border:0; width:100%; height:100%; min-height:300px;">
+                style="border:0;width:100%;height:100%;min-height:300px;">
             </iframe>
         </div>
         <div class="contact-form">
@@ -318,9 +433,9 @@
 
 <script>
 /* -------------------------------------------------
-   Show only the selected top‑level section.
-   The function is defined before any button tries to call it,
-   so the “Get in Touch” button works reliably.
+   Simple “show‑only‑one‑section” logic.
+   The function is defined before any button can call it,
+   so the “Get in Touch” button on the hero works.
    ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
@@ -329,14 +444,12 @@ function showSection(id){
     hideAllSections();
     const target=document.getElementById(id);
     if(target) target.style.display='block';
-    // smooth scroll to the top of the new section
+    // smooth scroll to the top of the newly‑shown section
     window.scrollTo({top:0,behavior:'smooth'});
 }
-
-/* Initialise: show Home on first load */
 document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
 
-/* Navigation links – all use data‑target */
+/* Navigation links – all use data‑target attributes */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
     link.addEventListener('click',e=>{
         e.preventDefault();
