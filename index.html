@@ -17,12 +17,12 @@
           rel="stylesheet">
 
     <style>
-        /* ==================== PALETTE & FONTS ==================== */
+        /* -------------------- PALETTE & FONTS -------------------- */
         :root{
             --bg:#f5f5f5;          /* light grey */
             --primary:#2e2e2e;    /* charcoal */
             --accent:#b71c1c;     /* warm red */
-            --secondary:#4c7c59; /* muted green */
+            --secondary:#4c7c59; /* muted green (used for occasional accents) */
             --font-heading:'Playfair Display',serif;
             --font-body:'Inter',sans-serif;
         }
@@ -70,14 +70,14 @@
             color:#fff;
         }
 
-        /* -------------------- HOME CARD (matches other pages) -------------------- */
+        /* -------------------- HOME CARD (centered) -------------------- */
         .home-card{
             background:#fff;
             border-radius:8px;
             padding:2rem;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
-            max-width:900px;
-            margin:2rem auto;
+            max-width:800px;
+            margin:3rem auto;                     /* centered on the page */
             text-align:center;
         }
         .home-card h1{
@@ -95,28 +95,14 @@
             justify-content:center;
         }
 
-        /* -------------------- FEATURE GRID (used on Home) -------------------- */
-        .feature-grid{
-            display:grid;
-            gap:2rem;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            margin-top:2rem;
-        }
-        .feature{
-            background:#fff;
-            border-radius:8px;
-            overflow:hidden;
+        /* -------------------- OTHER BLOCKS (unchanged) -------------------- */
+        .black-gold{
+            background:#fff;padding:2rem;border-radius:8px;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
-            text-align:center;
+            font-size:.96rem;line-height:1.5;
         }
-        .feature img{width:100%;height:180px;object-fit:cover;}
-        .feature h3{
-            font-family:var(--font-heading);
-            margin:1rem 0 .5rem;
-        }
-        .feature p{margin:0 1rem 1rem;font-size:.95rem;}
+        .black-gold h2{color:var(--accent);margin-bottom:.8rem;font-family:var(--font-heading);}
 
-        /* -------------------- PRODUCTS & SPECIALS (merged) -------------------- */
         .products{
             display:grid;
             gap:2rem;
@@ -134,15 +120,6 @@
         .product-card h3{font-family:var(--font-heading);margin-bottom:.5rem;}
         .price{font-weight:600;color:var(--accent);}
 
-        /* -------------------- BLACK‑GOLD BLOCK -------------------- */
-        .black-gold{
-            background:#fff;padding:2rem;border-radius:8px;
-            box-shadow:0 2px 6px rgba(0,0,0,.08);
-            font-size:.96rem;line-height:1.5;
-        }
-        .black-gold h2{color:var(--accent);margin-bottom:.8rem;font-family:var(--font-heading);}
-
-        /* -------------------- HOURS CARD -------------------- */
         .hours-card{
             background:#fff;padding:2rem;border-radius:8px;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
@@ -150,9 +127,8 @@
         }
         .hours-card h2{color:var(--accent);margin-bottom:1rem;font-family:var(--font-heading);}
 
-        /* -------------------- CONTACT -------------------- */
         .contact-grid{
-            display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1rem));
+            display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
         }
         .map iframe{width:100%;height:100%;border:0;min-height:300px;}
         .contact-form{
@@ -176,7 +152,7 @@
         .socials a:hover{opacity:.8;}
 
         @media (max-width:600px){
-            .home-card{padding:1.5rem;}
+            .home-card{margin:2rem 1rem;padding:1.5rem;}
             .home-card h1{font-size:2rem;}
         }
     </style>
@@ -223,53 +199,19 @@
     </nav>
 </header>
 
-<!-- ===================== HOME ===================== -->
+<!-- ==================== HOME (clean & centered) ==================== -->
 <section id="home">
     <div class="home-card">
-        <h1>Harpenden’s Finest Butcher</h1>
-        <p>Family‑run shop delivering premium fresh meat – the only local source for Scottish Black Gold Beef.</p>
+        <h1>Martin and Robert believe that Harpenden is the right place for their shop which sells top quality fresh meat</h1>
+        <p>Visit us for the freshest cuts, locally‑sourced, hand‑crafted and ready for your table.</p>
         <div class="cta">
             <button class="btn" onclick="showSection('products')">Shop Our Range</button>
             <button class="btn btn-outline" onclick="showSection('contact')">Get in Touch</button>
         </div>
     </div>
-
-    <!-- Feature grid – core product families -->
-    <div class="feature-grid">
-        <div class="feature">
-            <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
-            <h3>Beef</h3>
-            <p>Prime cuts, ribs, steaks – including exclusive Black Gold Beef.</p>
-        </div>
-        <div class="feature">
-            <img src="https://images.unsplash.com/photo-1515967749615-4392c5b0f8ef?w=600&h=400&fit=crop" alt="Pork">
-            <h3>Pork</h3>
-            <p>Back ribs, loins, smoked bacon – responsibly sourced.</p>
-        </div>
-        <div class="feature">
-            <img src="https://images.unsplash.com/photo-1584515933485-16ab0ef8c488?w=600&h=400&fit=crop" alt="Lamb">
-            <h3>Lamb</h3>
-            <p>Leg, chops, and mince – perfect for roasts.</p>
-        </div>
-        <div class="feature">
-            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?w=600&h=400&fit=crop" alt="Poultry">
-            <h3>Poultry</h3>
-            <p>Free‑range chicken, turkey, and duck.</p>
-        </div>
-        <div class="feature">
-            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&h=400&fit=crop" alt="Sausages">
-            <h3>Sausages &amp; Charcuterie</h3>
-            <p>Hand‑crafted links, hams, and pâtés made in‑store.</p>
-        </div>
-        <div class="feature">
-            <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Specials">
-            <h3>Seasonal Items</h3>
-            <p>Game meat – premium seasonal selections.</p>
-        </div>
-    </div>
 </section>
 
-<!-- ===================== ABOUT ===================== -->
+<!-- ==================== ABOUT ==================== -->
 <section id="about">
     <h2 class="section-title">About R&amp;M Butchers</h2>
     <p style="max-width:800px;margin:auto;text-align:center;">
@@ -277,7 +219,7 @@
     </p>
 </section>
 
-<!-- ===================== SCOTTISH BLACK GOLD BEEF ===================== -->
+<!-- ==================== SCOTTISH BLACK GOLD BEEF ==================== -->
 <section id="blackgold">
     <h2 class="section-title">Scottish Black Gold Beef</h2>
     <div class="black-gold">
@@ -289,11 +231,10 @@
     </div>
 </section>
 
-<!-- ===================== PRODUCTS & SPECIALS (merged) ===================== -->
+<!-- ==================== PRODUCTS & SPECIALS (merged) ==================== -->
 <section id="products">
     <h2 class="section-title">Products &amp; Specials</h2>
 
-    <!-- Intro note about seasonal items -->
     <p style="text-align:center;margin-bottom:1rem;">
         <em>Seasonal items are game meat – sourced responsibly each season.</em>
     </p>
@@ -324,7 +265,7 @@
             <div class="info"><h3>Sausages &amp; Charcuterie</h3><p>Hand‑crafted links, hams, and pâtés.</p><div class="price">£ / kg</div></div>
         </div>
 
-        <!-- Seasonal/game meat special -->
+        <!-- Seasonal/Game meat special -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Game meat">
             <div class="info"><h3>Game Meat (Seasonal)</h3><p>Venison, pheasant, rabbit – available during hunting season.</p><div class="price">Varies</div></div>
@@ -332,7 +273,7 @@
     </div>
 </section>
 
-<!-- ===================== OPENING HOURS ===================== -->
+<!-- ==================== OPENING HOURS ==================== -->
 <section id="hours">
     <h2 class="section-title">Opening Hours</h2>
     <div class="hours-card">
@@ -344,7 +285,7 @@
     </div>
 </section>
 
-<!-- ===================== CONTACT ===================== -->
+<!-- ==================== CONTACT ==================== -->
 <section id="contact">
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
