@@ -49,7 +49,7 @@
             display:flex;
             align-items:center;      /* vertical centering of the card */
             justify-content:center;  /* horizontal centering of the card */
-            min-height:calc(100vh - 72px);   /* full viewport minus header */
+            min-height:calc(100vh - 72px);   /* full viewport minus header height */
             padding:2rem;
         }
         .home-card{
@@ -65,7 +65,7 @@
             justify-content:center;   /* push content to the middle of the card */
             align-items:center;
             text-align:center;
-            min-height:350px;          /* enough height to make “middle” visible */
+            min-height:350px;          /* enough height so “middle” is noticeable */
         }
         .home-card h1{
             font-family:var(--font-heading);
@@ -346,26 +346,27 @@
 <script>
 /* -------------------------------------------------
    Global navigation – show only the selected section.
-   Exposed on window so inline onclick (e.g., Get in Touch)
-   can call it.
+   The function is attached to window so the inline
+   onclicks (Shop Our Range / Get in Touch) can call it.
    ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
 }
 window.showSection = function(id){
     hideAllSections();
-    const target=document.getElementById(id);
-    if(target) target.style.display='block';
-    window.scrollTo({top:0,behavior:'smooth'});
+    const target = document.getElementById(id);
+    if (target) target.style.display = 'block';
+    // smooth scroll to top for a nicer UX
+    window.scrollTo({top:0, behavior:'smooth'});
 };
 
 /* Show Home on first load */
-document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
+document.addEventListener('DOMContentLoaded',()=>{ showSection('home'); });
 
-/* Navigation links – prevent default link behaviour */
+/* Navigation links – prevent the default "#" jump */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
-    link.addEventListener('click',e=>{
-        e.preventDefault();                 // stop "#" jump
+    link.addEventListener('click', e=>{
+        e.preventDefault();                 // stop browser from scrolling to top
         showSection(link.dataset.target);   // show the requested section
     });
 });
