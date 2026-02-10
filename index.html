@@ -19,8 +19,8 @@
         :root{
             --bg:#f5f5f5;          /* light grey background */
             --primary:#2e2e2e;    /* charcoal text */
-            --accent:#b71c1c;     /* warm red for buttons */
-            --secondary:#4c7c59;  /* muted green (rarely used) */
+            --accent:#b71c1c;     /* warm‑red for buttons */
+            --secondary:#4c7c59; /* muted green (rarely used) */
             --font-body:'Roboto',sans-serif;
             --font-title:'Bebas Neue',cursive;
         }
@@ -48,27 +48,24 @@
         }
         nav a:hover{opacity:.8;}
 
-        /* ------------ HOME – FULL‑PAGE CENTERED ------------ */
+        /* -------------------- HOME – FULL‑PAGE CENTERED WITH SAME CONTENT WIDTH -------------------- */
         #home{
             display:flex;
-            align-items:center;
-            justify-content:center;
-            min-height:calc(100vh - 72px);   /* full viewport minus header */
+            align-items:center;          /* vertical centering */
+            justify-content:center;      /* horizontal centering */
+            min-height:calc(100vh - 72px);/* full viewport minus header */
+            padding:2rem;
+        }
+        .home-wrapper{
+            max-width:1200px;            /* same max‑width as other pages */
+            width:100%;
         }
         .home-card{
             background:#fff;
             border-radius:8px;
             padding:2rem;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
-            max-width:800px;
-            width:100%;
-            margin:auto;                     /* centre the card horizontally */
-            display:flex;
-            flex-direction:column;
-            justify-content:center;        /* vertical centre inside the card */
-            align-items:center;
             text-align:center;
-            min-height:350px;
         }
         .home-card h1{
             font-family:var(--font-title);
@@ -85,6 +82,7 @@
             justify-content:center;
         }
 
+        /* -------------------- GLOBAL SECTION STYLE (others) -------------------- */
         section{padding:4rem 2rem;max-width:1200px;margin:auto;display:none;}
         .section-title{
             font-family:var(--font-title);
@@ -222,14 +220,16 @@
     </nav>
 </header>
 
-<!-- ==================== HOME (centered) ==================== -->
+<!-- ==================== HOME (now aligned with other pages) ==================== -->
 <section id="home">
-    <div class="home-card">
-        <h1>R&amp;M Butchers best in Harpenden</h1>
-        <p>Martin and Robert believe that Harpenden is the right place for their shop which sells top quality fresh meat</p>
-        <div class="cta">
-            <button class="btn" onclick="showSection('products')">Shop Our Range</button>
-            <button class="btn btn-outline" onclick="showSection('contact')">Get in Touch</button>
+    <div class="home-wrapper">
+        <div class="home-card">
+            <h1>R&amp;M Butchers best in Harpenden</h1>
+            <p>Martin and Robert believe that Harpenden is the right place for their shop which sells top quality fresh meat</p>
+            <div class="cta">
+                <button class="btn" onclick="showSection('products')">Shop Our Range</button>
+                <button class="btn btn-outline" onclick="showSection('contact')">Get in Touch</button>
+            </div>
         </div>
     </div>
 </section>
