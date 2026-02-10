@@ -19,12 +19,12 @@
     <style>
         /* -------------------- PALETTE & FONTS -------------------- */
         :root{
-            --bg:#f5f5f5;          /* light grey */
-            --primary:#2e2e2e;    /* charcoal */
-            --accent:#b71c1c;     /* warm red */
-            --secondary:#4c7c59; /* muted green (occasional accent) */
+            --bg:#f5f5f5;          /* light grey background */
+            --primary:#2e2e2e;    /* charcoal text */
+            --accent:#b71c1c;     /* warm‑red for buttons */
+            --secondary:#4c7c59;  /* muted green (used rarely) */
             --font-body:'Roboto',sans-serif;          /* professional body */
-            --font-title:'Bebas Neue',cursive;        /* standout titles */
+            --font-title:'Bebas Neue',cursive;        /* standout headings */
         }
         *,*::before,*::after{box-sizing:border-box;}
         body{
@@ -41,22 +41,22 @@
         header{padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;}
         .logo{
             font-family:var(--font-title);
-            font-size:2rem;          /* slightly larger for the logo */
+            font-size:2rem;
         }
         nav ul{list-style:none;display:flex;gap:1.2rem;margin:0;padding:0;}
         nav a{
             color:#fff;
             font-family:var(--font-title);
-            font-weight:500;
         }
         nav a:hover{opacity:.8;}
 
-        /* -------------------- HOME SECTION – CENTERED -------------------- */
+        /* -------------------- HOME SECTION – FULL‑PAGE CENTERED -------------------- */
         #home{
+            /* Flex container that fills the screen (minus header) and centers its child */
             display:flex;
             align-items:center;
             justify-content:center;
-            min-height:calc(100vh - 72px);   /* full viewport minus header */
+            min-height:calc(100vh - 72px);   /* full viewport minus header height */
             padding:2rem;
         }
         .home-card{
@@ -66,12 +66,13 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:800px;
             width:100%;
+            /* Inside the card we also use flex to vertically centre the content */
             display:flex;
             flex-direction:column;
             justify-content:center;
             align-items:center;
             text-align:center;
-            min-height:350px;
+            min-height:300px;   /* ensures the card has enough height so content is truly centred */
         }
         .home-card h1{
             font-family:var(--font-title);
@@ -129,7 +130,7 @@
         .products{
             display:grid;
             gap:2rem;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1rem));
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
             margin-top:2rem;
         }
         .product-card{
@@ -139,9 +140,7 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
         }
         .product-card img{width:100%;height:180px;object-fit:cover;}
-        .product-card .info{
-            padding:1.5rem;
-        }
+        .product-card .info{padding:1.5rem;}
         .product-card h3{
             font-family:var(--font-title);
             margin-bottom:.5rem;
@@ -186,7 +185,6 @@
         @media (max-width:600px){
             .home-card{margin:1rem;padding:1.5rem;}
             .home-card h1{font-size:2.4rem;}
-            .section-title{font-size:2.4rem;}
         }
     </style>
 
@@ -232,10 +230,10 @@
     </nav>
 </header>
 
-<!-- ==================== HOME (centered) ==================== -->
+<!-- ==================== HOME (now truly centred) ==================== -->
 <section id="home">
     <div class="home-card">
-        <h1>R&amp;M Butchers best in Harpenden</h1>
+        <h1>R&amp;M Butchers</h1>
         <p>Martin and Robert believe that Harpenden is the right place for their shop which sells top quality fresh meat</p>
         <div class="cta">
             <button class="btn" onclick="showSection('products')">Shop Our Range</button>
@@ -365,25 +363,26 @@
 
 <script>
 /* -------------------------------------------------
-   Global navigation – show only the selected section.
-   Function attached to window for inline onclicks.
+   Simple navigation – show only the selected section.
+   The function is attached to window so that the
+   inline onclicks (Shop Our Range / Get in Touch) work.
    ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
 }
 window.showSection = function(id){
     hideAllSections();
-    const target = document.getElementById(id);
-    if (target) target.style.display = 'block';
+    const target=document.getElementById(id);
+    if(target) target.style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
 };
 
 /* Show Home on first load */
 document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
 
-/* Prevent default # behavior on navigation clicks */
+/* Navigation links – stop the default # jump */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
-    link.addEventListener('click', e=>{
+    link.addEventListener('click',e=>{
         e.preventDefault();
         showSection(link.dataset.target);
     });
