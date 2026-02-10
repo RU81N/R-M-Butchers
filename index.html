@@ -62,10 +62,10 @@
             /* Flex column inside the card – centers its content vertically */
             display:flex;
             flex-direction:column;
-            justify-content:center;   /* pushes content to the middle of the card */
+            justify-content:center;   /* push content to the middle of the card */
             align-items:center;
             text-align:center;
-            min-height:350px;          /* enough height so “middle” is noticeable */
+            min-height:350px;          /* enough height to make “middle” visible */
         }
         .home-card h1{
             font-family:var(--font-heading);
@@ -202,12 +202,12 @@
     <div class="logo">R&amp;M Butchers</div>
     <nav>
         <ul>
-            <li><a href="javascript:void(0)" data-target="home">Home</a></li>
-            <li><a href="javascript:void(0)" data-target="about">About</a></li>
-            <li><a href="javascript:void(0)" data-target="blackgold">Black Gold Beef</a></li>
-            <li><a href="javascript:void(0)" data-target="products">Products &amp; Specials</a></li>
-            <li><a href="javascript:void(0)" data-target="hours">Opening Hours</a></li>
-            <li><a href="javascript:void(0)" data-target="contact">Contact</a></li>
+            <li><a href="#" data-target="home">Home</a></li>
+            <li><a href="#" data-target="about">About</a></li>
+            <li><a href="#" data-target="blackgold">Black Gold Beef</a></li>
+            <li><a href="#" data-target="products">Products &amp; Specials</a></li>
+            <li><a href="#" data-target="hours">Opening Hours</a></li>
+            <li><a href="#" data-target="contact">Contact</a></li>
         </ul>
     </nav>
 </header>
@@ -314,4 +314,62 @@
                 <label for="name">Name</label>
                 <input type="text" id="name" name="Name" required>
 
-                <label for="email">*
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" required>
+
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="Phone">
+
+                <label for="message">Message / Order Details</label>
+                <textarea id="message" name="Message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p style="margin-top:1rem;">
+                <strong>Phone:</strong> 01234 567 890 &nbsp;|&nbsp;
+                <strong>Email:</strong> info@rmbutchers.co.uk
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>R&amp;M Butchers • 10 Station Road, Harpenden, AL5 4SE</p>
+    <p>Mon‑Wed 8:00‑17:00 • Thu‑Fri 8:00‑19:00 • Sat 8:00‑16:00 • Sun Closed</p>
+    <div class="socials">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📸</a>
+    </div>
+    <p>&copy; 2026 R&amp;M Butchers. All rights reserved.</p>
+</footer>
+
+<script>
+/* -------------------------------------------------
+   Global navigation – show only the selected section.
+   Exposed on window so inline onclick (e.g., Get in Touch)
+   can call it.
+   ------------------------------------------------- */
+function hideAllSections(){
+    document.querySelectorAll('section').forEach(s=>s.style.display='none');
+}
+window.showSection = function(id){
+    hideAllSections();
+    const target=document.getElementById(id);
+    if(target) target.style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+};
+
+/* Show Home on first load */
+document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
+
+/* Navigation links – prevent default link behaviour */
+document.querySelectorAll('nav a[data-target]').forEach(link=>{
+    link.addEventListener('click',e=>{
+        e.preventDefault();                 // stop "#" jump
+        showSection(link.dataset.target);   // show the requested section
+    });
+});
+</script>
+
+</body>
+</html>
