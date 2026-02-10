@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>R&amp;M Butchers – Fresh, Top‑Quality Meat in Harpenden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+          content="R&amp;M Butchers – family‑run shop in Harpenden selling fresh meat. The only local supplier of Scottish Black Gold Beef. Open Mon‑Sat.">
+    <!-- Open Graph (optional but useful) -->
+    <meta property="og:title" content="R&amp;M Butchers – Fresh, Top‑Quality Meat in Harpenden">
+    <meta property="og:description" content="Family‑run shop, only supplier of Scottish Black Gold Beef in Harpenden.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1200&h=630&fit=crop">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+        /* ==== Base ==== */
+        :root {
+            --color-bg: #f5f5f5;          /* light grey */
+            --color-primary: #2e2e2e;     /* charcoal */
+            --color-accent: #b71c1c;      /* warm red */
+            --color-secondary: #4c7c59;   /* muted green (optional) */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-primary);
+            line-height: 1.6;
+        }
+        a { color: var(--color-accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        /* ==== Layout ==== */
+        header, footer { background: var(--color-primary); color:#fff; }
+        header { padding: 1rem 2rem; display:flex; justify-content:space-between; align-items:center; }
+        .logo { font-family: var(--font-heading); font-size:1.8rem; font-weight:700; }
+        nav ul { list-style:none; display:flex; gap:1.2rem; }
+        nav a { color:#fff; font-weight:500; }
+        nav a:hover { opacity:0.8; }
+
+        /* ==== Hero ==== */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1600&h=900&fit=crop') center/cover no-repeat;
+            position:relative;
+            color:#fff;
+            text-align:center;
+            padding:8rem 1rem;
+        }
+        .hero::after{
+            content:"";
+            position:absolute; inset:0;
+            background:rgba(0,0,0,0.4);
+        }
+        .hero-content{
+            position:relative; max-width:800px; margin:auto;
+        }
+        .hero h1{font-family:var(--font-heading); font-size:2.8rem; margin-bottom:.5rem;}
+        .hero p{font-size:1.2rem; margin-bottom:1.5rem;}
+        .hero .btn{
+            background:var(--color-accent);
+            color:#fff;
+            padding:.8rem 1.5rem;
+            border:none;
+            border-radius:4px;
+            cursor:pointer;
+            font-weight:500;
+        }
+        .hero .btn:hover{opacity:.9;}
+
+        /* ==== Sections ==== */
+        section{padding:4rem 2rem; max-width:1200px; margin:auto;}
+        .section-title{font-family:var(--font-heading); font-size:2.2rem; margin-bottom:2rem; text-align:center;}
+
+        /* ==== Why choose us ==== */
+        .features{display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+        .feature{background:#fff; padding:2rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.08); text-align:center;}
+        .feature svg{width:40px; height:40px; margin-bottom:1rem; fill:var(--color-accent);}
+
+        /* ==== Products ==== */
+        .products{display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
+        .product-card{background:#fff; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,.08);}
+        .product-card img{width:100%; height:180px; object-fit:cover;}
+        .product-card .info{padding:1.5rem;}
+        .product-card h3{font-family:var(--font-heading); margin-bottom:.5rem;}
+        .product-card p{margin-bottom:.8rem; font-size:.95rem;}
+        .product-card .price{font-weight:600; color:var(--color-accent);}
+
+        /* ==== Specials ==== */
+        .specials{background:#fff; border-radius:8px; padding:2rem; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,.08);}
+        .specials .badge{
+            display:inline-block; background:var(--color-secondary); color:#fff;
+            padding:.3rem .8rem; border-radius:4px; font-weight:500; margin-bottom:1rem;
+        }
+
+        /* ==== Contact ==== */
+        .contact-grid{display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+        .map iframe{width:100%; height:100%; border:0; min-height:300px;}
+        .contact-form{background:#fff; padding:2rem; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.08);}
+        .contact-form label{display:block; margin-bottom:.3rem; font-weight:500;}
+        .contact-form input,
+        .contact-form textarea{
+            width:100%; padding:.6rem; margin-bottom:1rem; border:1px solid #ccc; border-radius:4px;
+            font-family:inherit;
+        }
+        .contact-form button{
+            background:var(--color-accent); color:#fff; border:none; padding:.8rem 1.2rem;
+            border-radius:4px; cursor:pointer; font-weight:500;
+        }
+        .contact-form button:hover{opacity:.9;}
+
+        /* ==== Footer ==== */
+        footer{padding:2rem; text-align:center; font-size:.9rem;}
+        .socials a{margin:0 .5rem; color:#fff; font-size:1.2rem;}
+        .socials a:hover{opacity:.8;}
+
+        /* ==== Responsive tweaks ==== */
+        @media (max-width:600px){
+            .hero{padding:5rem 1rem;}
+            .hero h1{font-size:2.2rem;}
+        }
+    </style>
+
+    <!-- Structured Data (LocalBusiness) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MeatShop",
+      "name": "R&M Butchers",
+      "image": "https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1200&h=630&fit=crop",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 Station Road",
+        "addressLocality": "Harpenden",
+        "postalCode": "AL5 4SE",
+        "addressCountry": "GB"
+      },
+      "telephone": "01234 567 890",
+      "email": "info@rmbutchers.co.uk",
+      "url": "https://rmbutchers.vercel.app",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday"],
+          "opens": "08:00",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
+      "priceRange": "£"
+    }
+    </script>
+</head>
+<body>
+
+<header>
+    <div class="logo">R&amp;M Butchers</div>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#specials">Specials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Top‑Quality Fresh Meat</h1>
+        <p>Martin and Robert believe Harpenden is the right place for their shop.</p>
+        <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+            Get in Touch
+        </button>
+    </div>
+</section>
+
+<section id="about">
+    <h2 class="section-title">About R&amp;M Butchers</h2>
+    <p style="max-width:800px;margin:auto;text-align:center;">
+        Family‑run butchers serving Harpenden with the finest cuts of meat. We are proud to be the <strong>only local supplier of Scottish Black Gold Beef</strong>. Our commitment is to freshness, traceability, and personal service.
+    </p>
+</section>
+
+<section id="features">
+    <h2 class="section-title">Why Choose Us?</h2>
+    <div class="features">
+        <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 6.627 9 13 9 13s9-6.373 9-13a9 9 0 0 0-9-9zm0 12a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg>
+            <h3>Premium Freshness</h3>
+            <p>All meat is sourced daily and displayed on a chilled counter.</p>
+        </div>
+        <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            <h3>Local Expertise</h3>
+            <p>Our butchers know every cut and can advise the perfect preparation.</p>
+        </div>
+        <div class="feature">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14l4-4h12c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+            <h3>Family Values</h3>
+            <p>We treat every customer like a neighbour, with honesty and care.</p>
+        </div>
+    </div>
+</section>
+
+<section id="products">
+    <h2 class="section-title">Our Range</h2>
+    <div class="products">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
+            <div class="info">
+                <h3>Beef</h3>
+                <p>Prime cuts, ribs, steaks – all from the finest farms.</p>
+                <div class="price">£ / kg</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1515967749615-4392c5b0f8ef?w=600&h=400&fit=crop" alt="Pork">
+            <div class="info">
+                <h3>Pork</h3>
+                <p>Back ribs, pork loins, bacon – responsibly sourced.</p>
+                <div class="price">£ / kg</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1584515933485-16ab0ef8c488?w=600&h=400&fit=crop" alt="Lamb">
+            <div class="info">
+                <h3>Lamb</h3>
+                <p>Leg, chops, and mince – perfect for roasts.</p>
+                <div class="price">£ / kg</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?w=600&h=400&fit=crop" alt="Poultry">
+            <div class="info">
+                <h3>Poultry</h3>
+                <p>Free‑range chicken, turkey, and duck.</p>
+                <div class="price">£ / kg</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&h=400&fit=crop" alt="Sausages">
+            <div class="info">
+                <h3>Sausages & Charcuterie</h3>
+                <p>Hand‑crafted links, hams, and pâtés.</p>
+                <div class="price">£ / kg</div>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Specials">
+            <div class="info">
+                <h3>Specials</h3>
+                <p>Seasonal offers and holiday hampers.</p>
+                <div class="price">Varies</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="specials" class="specials">
+    <h2 class="section-title">Scottish Black Gold Beef</h2>
+    <div class="badge">Exclusive to Harpenden</div>
+    <p>Our Scottish Black Gold Beef is renowned for its deep‑marbled texture and rich flavour. Ask our staff today for the cut that best fits your recipe.</p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+        Find Out More
+    </button>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Get in Touch</h2>
+    <div class="contact-grid">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed/v1/place?key=YOUR_GOOGLE_MAPS_API_KEY&q=10+Station+Road+Harpenden+AL5+4SE"
+                    allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="contact-form">
+            <form action="mailto:info@rmbutchers.co.uk" method="post" enctype="text/plain">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="Name" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="Email" required>
+
+                <label for="phone">Phone (optional)</label>
+                <input type="tel" id="phone" name="Phone">
+
+                <label for="message">Message / Order Details</label>
+                <textarea id="message" name="Message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+            <p style="margin-top:1rem;">
+                <strong>Phone:</strong> 01234 567 890 &nbsp; | &nbsp;
+                <strong>Email:</strong> info@rmbutchers.co.uk
+            </p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>R&amp;M Butchers • 10 Station Road, Harpenden, AL5 4SE</p>
+    <p>Mon‑Wed 8:00‑17:00 • Thu‑Fri 8:00‑19:00 • Sat 8:00‑16:00 • Sun Closed</p>
+    <div class="socials">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📸</a>
+    </div>
+    <p>&copy; 2026 R&amp;M Butchers. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
