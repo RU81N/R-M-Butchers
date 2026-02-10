@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="R&amp;M Butchers – family‑run shop in Harpenden selling fresh meat, including exclusive Scottish Black Gold Beef. Open Mon‑Sat.">
-    <!-- Open Graph (optional) -->
     <meta property="og:title" content="R&amp;M Butchers – Fresh, Top‑Quality Meat in Harpenden">
     <meta property="og:description" content="Family‑run shop, only supplier of Scottish Black Gold Beef in Harpenden.">
     <meta property="og:image"   content="https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=1200&h=630&fit=crop">
@@ -17,14 +16,13 @@
           rel="stylesheet">
 
     <style>
-        /* -------------------- PALETTE & FONTS -------------------- */
         :root{
-            --bg:#f5f5f5;          /* light grey background */
-            --primary:#2e2e2e;    /* charcoal text */
-            --accent:#b71c1c;     /* warm‑red for buttons */
-            --secondary:#4c7c59;  /* muted green (used rarely) */
-            --font-body:'Roboto',sans-serif;          /* professional body */
-            --font-title:'Bebas Neue',cursive;        /* standout headings */
+            --bg:#f5f5f5;          /* light grey */
+            --primary:#2e2e2e;    /* charcoal */
+            --accent:#b71c1c;     /* warm red */
+            --secondary:#4c7c59; /* muted green */
+            --font-body:'Roboto',sans-serif;
+            --font-title:'Bebas Neue',cursive;
         }
         *,*::before,*::after{box-sizing:border-box;}
         body{
@@ -50,13 +48,12 @@
         }
         nav a:hover{opacity:.8;}
 
-        /* -------------------- HOME SECTION – FULL‑PAGE CENTERED -------------------- */
+        /* -------------------- HOME SECTION – CENTERED -------------------- */
         #home{
-            /* Flex container that fills the screen (minus header) and centers its child */
             display:flex;
             align-items:center;
             justify-content:center;
-            min-height:calc(100vh - 72px);   /* full viewport minus header height */
+            min-height:calc(100vh - 72px);
             padding:2rem;
         }
         .home-card{
@@ -66,13 +63,12 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:800px;
             width:100%;
-            /* Inside the card we also use flex to vertically centre the content */
             display:flex;
             flex-direction:column;
             justify-content:center;
             align-items:center;
             text-align:center;
-            min-height:300px;   /* ensures the card has enough height so content is truly centred */
+            min-height:300px;
         }
         .home-card h1{
             font-family:var(--font-title);
@@ -89,7 +85,6 @@
             justify-content:center;
         }
 
-        /* -------------------- GLOBAL SECTION STYLE (others) -------------------- */
         section{padding:4rem 2rem;max-width:1200px;margin:auto;display:none;}
         .section-title{
             font-family:var(--font-title);
@@ -98,7 +93,6 @@
             text-align:center;
         }
 
-        /* -------------------- BUTTONS -------------------- */
         .btn{
             background:var(--accent);
             color:#fff;
@@ -115,7 +109,6 @@
             color:#fff;
         }
 
-        /* -------------------- OTHER BLOCKS (unchanged) -------------------- */
         .black-gold{
             background:#fff;padding:2rem;border-radius:8px;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
@@ -169,12 +162,11 @@
         .contact-form label{display:block;margin-bottom:.3rem;font-weight:500;}
         .contact-form input,.contact-form textarea{
             width:100%;padding:.6rem;margin-bottom:1rem;
-            border:1px solid #ccc;border-radius:4px;font-family:inherit;
+            border:1px solid #ccc;border-radius:4px;
         }
         .contact-form button{
             background:var(--accent);color:#fff;border:none;
             padding:.8rem 1.2rem;border-radius:4px;cursor:pointer;
-            font-weight:500;
         }
         .contact-form button:hover{opacity:.9;}
 
@@ -188,7 +180,6 @@
         }
     </style>
 
-    <!-- Structured data (LocalBusiness) -->
     <script type="application/ld+json">
     {
       "@context":"https://schema.org",
@@ -230,10 +221,10 @@
     </nav>
 </header>
 
-<!-- ==================== HOME (now truly centred) ==================== -->
+<!-- ==================== HOME (heading restored) ==================== -->
 <section id="home">
     <div class="home-card">
-        <h1>R&amp;M Butchers</h1>
+        <h1>R&amp;M Butchers best in Harpenden</h1>
         <p>Martin and Robert believe that Harpenden is the right place for their shop which sells top quality fresh meat</p>
         <div class="cta">
             <button class="btn" onclick="showSection('products')">Shop Our Range</button>
@@ -262,7 +253,7 @@
     </div>
 </section>
 
-<!-- ==================== PRODUCTS & SPECIALS (merged) ==================== -->
+<!-- ==================== PRODUCTS & SPECIALS ==================== -->
 <section id="products">
     <h2 class="section-title">Products &amp; Specials</h2>
 
@@ -296,7 +287,6 @@
             <div class="info"><h3>Sausages &amp; Charcuterie</h3><p>Hand‑crafted links, hams, and pâtés.</p><div class="price">£ / kg</div></div>
         </div>
 
-        <!-- Seasonal / Game meat special -->
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Game meat">
             <div class="info"><h3>Game Meat (Seasonal)</h3><p>Venison, pheasant, rabbit – available during hunting season.</p><div class="price">Varies</div></div>
@@ -362,25 +352,18 @@
 </footer>
 
 <script>
-/* -------------------------------------------------
-   Simple navigation – show only the selected section.
-   The function is attached to window so that the
-   inline onclicks (Shop Our Range / Get in Touch) work.
-   ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
 }
 window.showSection = function(id){
     hideAllSections();
     const target=document.getElementById(id);
-    if(target) target.style.display='block';
+    if (target) target.style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
 };
 
-/* Show Home on first load */
 document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
 
-/* Navigation links – stop the default # jump */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
     link.addEventListener('click',e=>{
         e.preventDefault();
