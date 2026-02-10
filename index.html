@@ -17,12 +17,12 @@
           rel="stylesheet">
 
     <style>
-        /* ------------------- colour palette & fonts ------------------- */
+        /* -------------------- PALETTE & FONTS -------------------- */
         :root{
             --bg:#f5f5f5;          /* light grey */
             --primary:#2e2e2e;    /* charcoal */
             --accent:#b71c1c;     /* warm red */
-            --secondary:#4c7c59; /* muted green for occasional accents */
+            --secondary:#4c7c59; /* muted green */
             --font-heading:'Playfair Display',serif;
             --font-body:'Inter',sans-serif;
         }
@@ -44,9 +44,10 @@
         nav a{color:#fff;font-weight:500;}
         nav a:hover{opacity:.8;}
 
-        /* ------------------- HERO (modern home) ------------------- */
+        /* -------------------- HERO (modern home) -------------------- */
         #home{
-            background:url('https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=2000&h=1200&fit=crop') center/cover no-repeat;
+            background:url('https://images.unsplash.com/photo-1550547061-0182cf4b58c5?w=2000&h=1200&fit=crop')
+                      center/cover no-repeat;
             position:relative;
             color:#fff;
             text-align:center;
@@ -55,7 +56,7 @@
         #home::after{
             content:"";
             position:absolute;inset:0;
-            background:rgba(0,0,0,0.35);   /* dark overlay for legibility */
+            background:rgba(0,0,0,0.35);
         }
         #home .content{
             position:relative;
@@ -93,7 +94,7 @@
             color:#fff;
         }
 
-        /* ------------------- generic sections ------------------- */
+        /* -------------------- GENERIC SECTIONS -------------------- */
         section{padding:4rem 2rem;max-width:1200px;margin:auto;display:none;}
         .section-title{
             font-family:var(--font-heading);
@@ -102,7 +103,7 @@
             text-align:center;
         }
 
-        /* ------------------- OUR PROMISE CARD ------------------- */
+        /* -------------------- PROMISE CARD -------------------- */
         #promise{
             background:#fff;
             border-radius:8px;
@@ -113,7 +114,7 @@
             text-align:center;
         }
 
-        /* ------------------- FEATURE GRID (home) ------------------- */
+        /* -------------------- FEATURE GRID (home) -------------------- */
         .feature-grid{
             display:grid;
             gap:2rem;
@@ -132,9 +133,9 @@
             font-family:var(--font-heading);
             margin:1rem 0 .5rem;
         }
-        .feature p{margin:0 1rem 1rem; font-size:.95rem;}
+        .feature p{margin:0 1rem 1rem;font-size:.95rem;}
 
-        /* ------------------- OTHER CONTENT BLOCKS ------------------- */
+        /* -------------------- OTHER BLOCKS -------------------- */
         .features,.products{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));}
         .feature-card,.product-card{
             background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;
@@ -145,14 +146,14 @@
         .product-card h3{font-family:var(--font-heading);margin-bottom:.5rem;}
         .price{font-weight:600;color:var(--accent);}
 
-        /* ------------------- BLACK‑GOLD BLOCK ------------------- */
+        /* -------------------- BLACK‑GOLD BLOCK -------------------- */
         .black-gold{
             background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
             font-size:.96rem;line-height:1.5;
         }
         .black-gold h2{color:var(--accent);margin-bottom:.8rem;font-family:var(--font-heading);}
 
-        /* ------------------- SPECIALS ------------------- */
+        /* -------------------- SPECIALS -------------------- */
         .specials{
             background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;
         }
@@ -161,14 +162,14 @@
             border-radius:4px;font-weight:500;margin-bottom:1rem;
         }
 
-        /* ------------------- HOURS CARD ------------------- */
+        /* -------------------- HOURS CARD -------------------- */
         .hours-card{
             background:#fff;padding:2rem;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:500px;margin:auto;
         }
         .hours-card h2{color:var(--accent);margin-bottom:1rem;font-family:var(--font-heading);}
 
-        /* ------------------- CONTACT ------------------- */
+        /* -------------------- CONTACT -------------------- */
         .contact-grid{
             display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
         }
@@ -239,9 +240,7 @@
     </nav>
 </header>
 
-<!-- ==============================================================
-     HOME – CLEAN & MODERN HERO + QUICK OVERVIEW
-============================================================== -->
+<!-- ===================== HOME (modern) ===================== -->
 <section id="home">
     <div class="content">
         <h1>Harpenden’s Finest Butcher</h1>
@@ -253,9 +252,7 @@
     </div>
 </section>
 
-<!-- --------------------------------------------------------------
-     OUR PROMISE – short statement that appears under the hero
--------------------------------------------------------------- -->
+<!-- Promise card -->
 <section id="promise">
     <h2 class="section-title">Our Promise</h2>
     <p>
@@ -263,9 +260,7 @@
     </p>
 </section>
 
-<!-- --------------------------------------------------------------
-     QUICK FEATURE GRID – show the six main product families
--------------------------------------------------------------- -->
+<!-- Quick feature grid (six main product families) -->
 <section id="home-features" class="feature-grid">
     <div class="feature">
         <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
@@ -299,9 +294,7 @@
     </div>
 </section>
 
-<!-- ==============================================================
-     ABOUT
-============================================================== -->
+<!-- ===================== ABOUT ===================== -->
 <section id="about">
     <h2 class="section-title">About R&amp;M Butchers</h2>
     <p style="max-width:800px;margin:auto;text-align:center;">
@@ -309,9 +302,7 @@
     </p>
 </section>
 
-<!-- ==============================================================
-     SCOTTISH BLACK GOLD BEEF
-============================================================== -->
+<!-- ===================== SCOTTISH BLACK GOLD BEEF ===================== -->
 <section id="blackgold">
     <h2 class="section-title">Scottish Black Gold Beef</h2>
     <div class="black-gold">
@@ -323,9 +314,7 @@
     </div>
 </section>
 
-<!-- ==============================================================
-     PRODUCTS (full catalogue)
-============================================================== -->
+<!-- ===================== PRODUCTS (full catalogue) ===================== -->
 <section id="products">
     <h2 class="section-title">Our Range</h2>
     <p style="text-align:center;margin-bottom:2rem;">
@@ -359,9 +348,7 @@
     </div>
 </section>
 
-<!-- ==============================================================
-     SPECIALS (highlight Black Gold)
-============================================================== -->
+<!-- ===================== SPECIALS ===================== -->
 <section id="specials" class="specials">
     <h2 class="section-title">Scottish Black Gold Beef – Exclusive</h2>
     <div class="badge">Only in Harpenden</div>
@@ -369,9 +356,7 @@
     <button class="btn" onclick="showSection('contact')">Find Out More</button>
 </section>
 
-<!-- ==============================================================
-     OPENING HOURS
-============================================================== -->
+<!-- ===================== OPENING HOURS ===================== -->
 <section id="hours">
     <h2 class="section-title">Opening Hours</h2>
     <div class="hours-card">
@@ -383,14 +368,12 @@
     </div>
 </section>
 
-<!-- ==============================================================
-     CONTACT (map + form)
-============================================================== -->
+<!-- ===================== CONTACT ===================== -->
 <section id="contact">
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
         <div class="map">
-            <!-- Simple key‑free embed pointing to the shop address -->
+            <!-- Simple key‑free Google Maps embed -->
             <iframe
                 src="https://www.google.com/maps?q=10+Station+Road+Harpenden+AL5+4SE&output=embed"
                 allowfullscreen loading="lazy"
@@ -433,23 +416,24 @@
 
 <script>
 /* -------------------------------------------------
-   Simple “show‑only‑one‑section” logic.
-   The function is defined before any button can call it,
-   so the “Get in Touch” button on the hero works.
+   Global navigation – show only the selected section.
+   Exposed on window so inline onclick attributes can call it.
    ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
 }
-function showSection(id){
+window.showSection = function(id){
     hideAllSections();
     const target=document.getElementById(id);
     if(target) target.style.display='block';
-    // smooth scroll to the top of the newly‑shown section
+    // smooth scroll to top for a nice UX
     window.scrollTo({top:0,behavior:'smooth'});
-}
+};
+
+/* Initialise – display Home on first load */
 document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
 
-/* Navigation links – all use data‑target attributes */
+/* Nav‑link click handling (same function as the buttons) */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
     link.addEventListener('click',e=>{
         e.preventDefault();
