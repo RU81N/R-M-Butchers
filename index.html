@@ -22,7 +22,7 @@
             --bg:#f5f5f5;          /* light grey */
             --primary:#2e2e2e;    /* charcoal */
             --accent:#b71c1c;     /* warm red */
-            --secondary:#4c7c59; /* muted green for occasional accents */
+            --secondary:#4c7c59; /* muted green */
             --font-heading:'Playfair Display',serif;
             --font-body:'Inter',sans-serif;
         }
@@ -53,7 +53,7 @@
             text-align:center;
         }
 
-        /* -------------------- BUTTONS (shared everywhere) -------------------- */
+        /* -------------------- BUTTONS -------------------- */
         .btn{
             background:var(--accent);
             color:#fff;
@@ -116,29 +116,43 @@
         }
         .feature p{margin:0 1rem 1rem;font-size:.95rem;}
 
-        /* -------------------- OTHER BLOCKS (unchanged) -------------------- */
+        /* -------------------- PRODUCTS & SPECIALS (merged) -------------------- */
+        .products{
+            display:grid;
+            gap:2rem;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            margin-top:2rem;
+        }
+        .product-card{
+            background:#fff;
+            border-radius:8px;
+            overflow:hidden;
+            box-shadow:0 2px 6px rgba(0,0,0,.08);
+        }
+        .product-card img{width:100%;height:180px;object-fit:cover;}
+        .product-card .info{padding:1.5rem;}
+        .product-card h3{font-family:var(--font-heading);margin-bottom:.5rem;}
+        .price{font-weight:600;color:var(--accent);}
+
+        /* -------------------- BLACK‑GOLD BLOCK -------------------- */
         .black-gold{
             background:#fff;padding:2rem;border-radius:8px;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             font-size:.96rem;line-height:1.5;
         }
         .black-gold h2{color:var(--accent);margin-bottom:.8rem;font-family:var(--font-heading);}
-        .specials{
-            background:#fff;padding:2rem;border-radius:8px;
-            box-shadow:0 2px 6px rgba(0,0,0,.08);text-align:center;
-        }
-        .badge{
-            display:inline-block;background:var(--secondary);color:#fff;
-            padding:.3rem .8rem;border-radius:4px;font-weight:500;margin-bottom:1rem;
-        }
+
+        /* -------------------- HOURS CARD -------------------- */
         .hours-card{
             background:#fff;padding:2rem;border-radius:8px;
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:500px;margin:auto;
         }
         .hours-card h2{color:var(--accent);margin-bottom:1rem;font-family:var(--font-heading);}
+
+        /* -------------------- CONTACT -------------------- */
         .contact-grid{
-            display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1rem));
         }
         .map iframe{width:100%;height:100%;border:0;min-height:300px;}
         .contact-form{
@@ -202,15 +216,14 @@
             <li><a href="javascript:void(0)" data-target="home">Home</a></li>
             <li><a href="javascript:void(0)" data-target="about">About</a></li>
             <li><a href="javascript:void(0)" data-target="blackgold">Black Gold Beef</a></li>
-            <li><a href="javascript:void(0)" data-target="products">Products</a></li>
-            <li><a href="javascript:void(0)" data-target="specials">Specials</a></li>
+            <li><a href="javascript:void(0)" data-target="products">Products &amp; Specials</a></li>
             <li><a href="javascript:void(0)" data-target="hours">Opening Hours</a></li>
             <li><a href="javascript:void(0)" data-target="contact">Contact</a></li>
         </ul>
     </nav>
 </header>
 
-<!-- ===================== HOME (now matching other pages) ===================== -->
+<!-- ===================== HOME ===================== -->
 <section id="home">
     <div class="home-card">
         <h1>Harpenden’s Finest Butcher</h1>
@@ -221,7 +234,7 @@
         </div>
     </div>
 
-    <!-- Feature grid – still shows the six core product families -->
+    <!-- Feature grid – core product families -->
     <div class="feature-grid">
         <div class="feature">
             <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
@@ -250,8 +263,8 @@
         </div>
         <div class="feature">
             <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Specials">
-            <h3>Specials</h3>
-            <p>Seasonal offers, holiday hampers, and limited‑edition cuts.</p>
+            <h3>Seasonal Items</h3>
+            <p>Game meat – premium seasonal selections.</p>
         </div>
     </div>
 </section>
@@ -276,46 +289,47 @@
     </div>
 </section>
 
-<!-- ===================== PRODUCTS (full catalogue) ===================== -->
+<!-- ===================== PRODUCTS & SPECIALS (merged) ===================== -->
 <section id="products">
-    <h2 class="section-title">Our Range</h2>
-    <p style="text-align:center;margin-bottom:2rem;">
-        In addition to our exclusive Black Gold Beef, we also sell fresh pork, lamb, chicken, duck, and game (when in season). All sausages, beef, and lamb burgers are handcrafted on‑site.
+    <h2 class="section-title">Products &amp; Specials</h2>
+
+    <!-- Intro note about seasonal items -->
+    <p style="text-align:center;margin-bottom:1rem;">
+        <em>Seasonal items are game meat – sourced responsibly each season.</em>
     </p>
+
     <div class="products">
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1602810319288-9f2c75fab55e?w=600&h=400&fit=crop" alt="Beef">
             <div class="info"><h3>Beef</h3><p>Prime cuts, ribs, steaks – all from the finest farms.</p><div class="price">£ / kg</div></div>
         </div>
+
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1515967749615-4392c5b0f8ef?w=600&h=400&fit=crop" alt="Pork">
             <div class="info"><h3>Pork</h3><p>Back ribs, pork loins, bacon – responsibly sourced.</p><div class="price">£ / kg</div></div>
         </div>
+
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1584515933485-16ab0ef8c488?w=600&h=400&fit=crop" alt="Lamb">
             <div class="info"><h3>Lamb</h3><p>Leg, chops, and mince – perfect for roasts.</p><div class="price">£ / kg</div></div>
         </div>
+
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1562967916-eb82221dfb36?w=600&h=400&fit=crop" alt="Poultry">
             <div class="info"><h3>Poultry</h3><p>Free‑range chicken, turkey, and duck.</p><div class="price">£ / kg</div></div>
         </div>
+
         <div class="product-card">
             <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?w=600&h=400&fit=crop" alt="Sausages">
             <div class="info"><h3>Sausages &amp; Charcuterie</h3><p>Hand‑crafted links, hams, and pâtés.</p><div class="price">£ / kg</div></div>
         </div>
+
+        <!-- Seasonal/game meat special -->
         <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Specials">
-            <div class="info"><h3>Specials</h3><p>Seasonal offers and holiday hampers.</p><div class="price">Varies</div></div>
+            <img src="https://images.unsplash.com/photo-1558023885-f81d1d71b79f?w=600&h=400&fit=crop" alt="Game meat">
+            <div class="info"><h3>Game Meat (Seasonal)</h3><p>Venison, pheasant, rabbit – available during hunting season.</p><div class="price">Varies</div></div>
         </div>
     </div>
-</section>
-
-<!-- ===================== SPECIALS ===================== -->
-<section id="specials" class="specials">
-    <h2 class="section-title">Scottish Black Gold Beef – Exclusive</h2>
-    <div class="badge">Only in Harpenden</div>
-    <p>Our Black Gold Beef is renowned for its deep‑marbled texture and rich flavour. It’s the choice of luxury hotels, top‑restaurants, and Harrods Food Hall worldwide.</p>
-    <button class="btn" onclick="showSection('contact')">Find Out More</button>
 </section>
 
 <!-- ===================== OPENING HOURS ===================== -->
@@ -335,7 +349,6 @@
     <h2 class="section-title">Get in Touch</h2>
     <div class="contact-grid">
         <div class="map">
-            <!-- Key‑free Google Maps embed pointing to the shop -->
             <iframe
                 src="https://www.google.com/maps?q=10+Station+Road+Harpenden+AL5+4SE&output=embed"
                 allowfullscreen loading="lazy"
@@ -379,8 +392,8 @@
 <script>
 /* -------------------------------------------------
    Global navigation – show only the selected section.
-   The function is attached to window so inline
-   onclick attributes (e.g., Get in Touch button) work.
+   Exposed on window so inline onclick (e.g., Get in Touch)
+   can call it.
    ------------------------------------------------- */
 function hideAllSections(){
     document.querySelectorAll('section').forEach(s=>s.style.display='none');
@@ -395,7 +408,7 @@ window.showSection = function(id){
 /* Show Home on first load */
 document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
 
-/* Navigation links – same behaviour as buttons */
+/* Navigation links */
 document.querySelectorAll('nav a[data-target]').forEach(link=>{
     link.addEventListener('click',e=>{
         e.preventDefault();
