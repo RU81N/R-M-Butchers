@@ -46,11 +46,10 @@
 
         /* -------------------- HOME SECTION – CENTERED -------------------- */
         #home{
-            /* Flex container that vertically & horizontally centers the card */
             display:flex;
-            align-items:center;
-            justify-content:center;
-            min-height:calc(100vh - 72px);   /* viewport height minus header height */
+            align-items:center;      /* vertical centering of the card */
+            justify-content:center;  /* horizontal centering of the card */
+            min-height:calc(100vh - 72px);   /* full viewport minus header */
             padding:2rem;
         }
         .home-card{
@@ -60,7 +59,13 @@
             box-shadow:0 2px 6px rgba(0,0,0,.08);
             max-width:800px;
             width:100%;
+            /* Flex column inside the card – centers its content vertically */
+            display:flex;
+            flex-direction:column;
+            justify-content:center;   /* pushes content to the middle of the card */
+            align-items:center;
             text-align:center;
+            min-height:350px;          /* enough height so “middle” is noticeable */
         }
         .home-card h1{
             font-family:var(--font-heading);
@@ -74,7 +79,7 @@
         .home-card .cta{
             display:flex;
             gap:1rem;
-            justify-content:center;   /* side‑by‑side and centered */
+            justify-content:center;
         }
 
         /* -------------------- GLOBAL SECTION STYLE (others) -------------------- */
@@ -207,7 +212,7 @@
     </nav>
 </header>
 
-<!-- ==================== HOME (original layout) ==================== -->
+<!-- ==================== HOME (centered content inside card) ==================== -->
 <section id="home">
     <div class="home-card">
         <h1>R&amp;M Butchers best in Harpenden</h1>
@@ -309,62 +314,4 @@
                 <label for="name">Name</label>
                 <input type="text" id="name" name="Name" required>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" name="Email" required>
-
-                <label for="phone">Phone (optional)</label>
-                <input type="tel" id="phone" name="Phone">
-
-                <label for="message">Message / Order Details</label>
-                <textarea id="message" name="Message" rows="4" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-            <p style="margin-top:1rem;">
-                <strong>Phone:</strong> 01234 567 890 &nbsp;|&nbsp;
-                <strong>Email:</strong> info@rmbutchers.co.uk
-            </p>
-        </div>
-    </div>
-</section>
-
-<footer>
-    <p>R&amp;M Butchers • 10 Station Road, Harpenden, AL5 4SE</p>
-    <p>Mon‑Wed 8:00‑17:00 • Thu‑Fri 8:00‑19:00 • Sat 8:00‑16:00 • Sun Closed</p>
-    <div class="socials">
-        <a href="#" aria-label="Facebook">📘</a>
-        <a href="#" aria-label="Instagram">📸</a>
-    </div>
-    <p>&copy; 2026 R&amp;M Butchers. All rights reserved.</p>
-</footer>
-
-<script>
-/* -------------------------------------------------
-   Global navigation – show only the selected section.
-   Exposed on window so inline onclick (e.g., Get in Touch)
-   can call it.
-   ------------------------------------------------- */
-function hideAllSections(){
-    document.querySelectorAll('section').forEach(s=>s.style.display='none');
-}
-window.showSection = function(id){
-    hideAllSections();
-    const target=document.getElementById(id);
-    if(target) target.style.display='block';
-    window.scrollTo({top:0,behavior:'smooth'});
-};
-
-/* Show Home on first load */
-document.addEventListener('DOMContentLoaded',()=>{showSection('home');});
-
-/* Navigation links */
-document.querySelectorAll('nav a[data-target]').forEach(link=>{
-    link.addEventListener('click',e=>{
-        e.preventDefault();
-        showSection(link.dataset.target);
-    });
-});
-</script>
-
-</body>
-</html>
+                <label for="email">*
